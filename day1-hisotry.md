@@ -178,3 +178,215 @@ history
 history | awk '$1' > 793 | cut -c 8-
 history | awk '$1 > 793' | cut -c 8-
 history | awk '$1 > 793' | cut -c 8- > day1-hisotry.md
+git status
+rm 793 
+git status
+ls -la
+rm 793
+ls -la
+git status
+git add day1-hisotry.md 
+git commit -m "Adding day1 file"
+git config --global user.email "markuj5@gmail.com"
+git config --global user.name "Marcin"
+git commit -m "Adding day1 file"
+git push
+ls -la
+cd
+nmcli connection show
+nmcli connection delete ExtraOne 
+nmcli connection delete Internet 
+nmcli connection show
+reboot
+ip a s
+netstat -vatnulp
+watch netstat -vatnulp
+ip a s
+clear
+ping 192.168.1.1
+ping 192.168.1.1 -c 4
+traceroute google.com
+traceroute google.com -I 
+traceroute --help
+q
+traceroute google.com -I 
+traceroute google.com 
+nmap --help
+nmap 192.168.1.81
+telnet 192.168.1.1 443
+telnet 192.168.1.1 80
+telnet 192.168.1.1 22
+curl -v telnet://192.168.1.1:443
+netstat -tuvalpn
+netstat -tuvalp
+clear
+netstat -tuvalpn
+netstat -tuvalpn|grep chrony
+ss
+ss -vatunlp
+ss -atunlp
+netstat -tuvalpn
+clear
+arp
+rarp
+arp -hhelp
+arp -a
+dnf install rarp
+dnf provides *rarp*
+arp
+clear
+tcpdump -i eth0 -nn -s0 -v port 22
+systemctl status chronyd
+cat /etc/services | grep ntp
+cat /etc/services | grep samba
+cat /etc/services | grep winbind
+cat /etc/services | grep kerberos
+cat /etc/services | grep rdp
+cat /etc/services | grep 3128
+tcpdump -i eth0 -nn -s0 -v port 123
+vi /etc/ssh/sshd_config 
+systemctl restart sshd
+tcpdump -i eth0 -nn -s0 port 2222
+tcpdump -i eth0 -nn -s0 port 2222 -w ssh2222.pcap
+ls
+tcpdump -A -s0 port 123
+tcpdump -A -s0 port 123 -v
+tcpdump -A -s0 port 22
+tcpdump -i eth0 udp
+tcpdump -i eth0 udp port 123
+tcpdump -i eth0 host 192.168.1.1
+tcpdump -i eth0 host 192.168.1.1 -w gw.pcap
+sysctl 
+sysctl -a
+sysctl -a | ipv4
+sysctl -a | grep ipv4
+sysctl -a | grep forward
+sysctl -a | grep icmp
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+sysctl -p
+ping 192.168.1.81
+vi /etc/sysctl.conf 
+sysctl -p
+ping 192.168.1.81
+sysctl -a | grep arp
+nc --help
+nc -l 5555
+nc -v -w 2 -z 192.168.1.82 80
+nc -v -w 2 -z 192.168.1.82 22
+nc -v -w 2 -z 192.168.1.82 20-40
+nc -v -w 2 -z 192.168.1.82 22 123
+nc -v -n 192.168.1.82 22
+nslookup centos8
+nmtui-edit 
+nslookup centos8
+nmcli connection down eth0 ;nmcli connection up eth0 
+nslookup centos8
+nslookup home
+nslookup centos8.home
+nslookup wp.pl
+nslookup google.com
+nslookup 
+nslookup google.com
+nslookup 142.250.75.14
+nslookup  smtp.google.com
+dig google.com
+dig -t mx google.com
+timedate
+timedatectl 
+hwclock 
+timedatectl set-timezone Europe/Riga 
+timedatectl 
+date
+timedatectl list-timezones 
+timedatectl set-ntp no
+timedatectl 
+timedatectl set-ntp yes
+timedatectl 
+dnf install chronyd
+dnf install chrony
+vi /etc/chrony.conf 
+cat /etc/chrony.conf | grep -v "#"
+vi /etc/chrony.conf 
+systemctl restart chronyd
+chronyc sources
+watch chronyc sources
+chronyc sources
+chronyc --help
+chronyc sources -n
+chronyc sources -d
+chronyc -d sources 
+chronyc -n sources 
+chrony trcking
+chronyc trcking
+chronyc tracking
+chronyc sources 
+systemctl stop chronyd
+dnf install ntpd
+dnf install ntp
+systemctl start chronyd
+vi /etc/ssh/sshd_config 
+pwd
+ls -la
+ls -la /home/student
+vi /etc/hosts
+ping centos8-2
+ssh-keygen -t
+ssh-keygen -t rsa
+ls -la 
+cd .ssh/
+ls -la
+cd
+ssh-copy-id root@192.168.1.82
+ssh centos8-2
+ip a s
+vi /etc/resolv.conf 
+vi /etc/hosts
+ssh centos8-2
+cat .ssh/id_rsa.pub 
+ssh --help
+man ssh
+ssh -Nf 2222:192.168.1.81:22 student@192.168.1.82
+ssh -Nf -L 2222:192.168.1.81:22 student@192.168.1.82
+vi /etc/resolv.conf 
+vi /etc/ssh/sshd_config 
+sysctl -a | grep forward
+vi /etc/sysctl.
+vi /etc/sysctl.conf 
+sysctl -p
+ssh -Nf -L 2222:192.168.1.81:22 student@192.168.1.82
+sysctl -p
+ssh -Nf -L 2222:192.168.1.81:22 student@192.168.1.82
+ssh -Nf -L 2220:192.168.1.81:22 student@192.168.1.82
+netstat -vatnlp 
+systemctl restart sshd
+netstat -vatnlp 
+ssh -p 2220:localhost
+ssh -p 2220 localhost
+reboot
+netstat -vatnlp 
+ssh -Nf -L 2222:192.168.1.82:22 student@192.168.1.81
+netstat -vatnlp 
+ssh -p 2222 localhost
+dnf install pssh
+vi hosts
+ssh-copy-id centos8-1
+pssh -i -h hosts "date;hostname"
+vi script.sh
+chmod +x script.sh 
+scp script.sh centos8-1:/tmp
+scp script.sh centos8-2:/tmp
+pssh -i -h hosts "/tmp/script.sh"
+vi /etc/ssh/sshd_config 
+init 5
+ps -ef | grep ssh
+kill -15 1418
+ps -ef | grep ssh
+dnf install tigervnc tigervnc-server
+vncserver 
+vncviewer localhost:5901
+history
+history | awk '$1 > 612' | cut -c 8-
+history | awk '$1 > 612' | cut -c 8- | wc -l
+history | awk '$1 > 612' | cut -c 8- > lfs311_Nov/day1-hisotry.md 
