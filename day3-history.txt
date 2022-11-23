@@ -300,5 +300,28 @@ chmod 2775 private
 systemctl restart smb.service 
 vi /etc/samba/smb.conf
 cd
-history
-history | awk '$1 > 1000' | cut -c 8- > /root/lfs311_Nov/day3-hisotry.md
+iptables -A OUTPUT -p icmp -j ACCEPT
+iptables -A INPUT -p icmp -j ACCEPT
+ping google.com
+iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
+ping google.com
+ping 192.168.1.1
+iptables -A INPUT -p udp --dport 53 -j ACCEPT
+iptables -A INPUT -p tcp --dport 53 -j ACCEPT
+ping google.com
+iptables -I 2 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -I 2 INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -I INPUT 2 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -L -v -n
+ping google.com
+iptables -A OUTPUT -d 192.168.1.1 -j REJECT
+ping 192.168.1.1
+telnet 192.168.1.1 443
+iptables -A OUTPUT -p tcp --dport 443 -d 192.168.1.1 -j ACCEPT
+telnet 192.168.1.1 443
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables -L -v -n
+
