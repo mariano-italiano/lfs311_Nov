@@ -23,6 +23,9 @@ systemctl restart postfix.service
 systemctl status postfix.service 
 less /var/log/maillog 
 echo "testing postfix server email" | mail -s "Real test email" markuj5@gmail.com
+echo "testing postfix server email" | mail -s "Real test email" Andris.Sivins@knab.gov.lv
+echo "testing postfix server email" | mail -s "Real test email" Janis.Kulmanis@knab.gov.lv
+echo "testing postfix server email" | mail -s "Real test email" janis.it.mikelsons@knab.gov.lv
 clear
 postqueue -p
 echo "test message" | mail -s "Test email" student@localhost
@@ -244,4 +247,58 @@ vi lfs311_Nov/day3-hisotry.md
 history | awk '$1 > 1000' | cut -c 8- 
 vi lfs311_Nov/day3-hisotry.md 
 cat lfs311_Nov/day3-hisotry.md | wc -l
+history | awk '$1 > 1000' | cut -c 8- > /root/lfs311_Nov/day3-hisotry.md
+cat lfs311_Nov/day3-hisotry.md | wc -l
+vi /root/lfs311_Nov/day3-hisotry.md
+cd lfs311_Nov/
+git add .
+git commit -m "Day3 history"
+git push
+cd
+dnf install samba smaba-client
+dnf install samba samba-client
+systemctl enable --now smb
+smbclient -L localhost
+mkdir /srv/smbshare
+chmod 777 /srv/smbshare
+vi /etc/samba/smb.conf
+mv /srv/smbshare/ /srv/smb-ro
+tesparm
+testparm
+cd /srv/smb-ro/
+touch file1
+df -h > file1 
+cat file1 
+vi /etc/samba/smb.conf
+cd
+cd /srv/
+ls -la
+mkdir private
+chmod 2777 private
+chgrp devops private/
+id lisa
+usermod -aG devops lisa
+ud lisa
+id lisa
+id peter
+usermod -G peter
+usermod -G peter peter
+id peter
+smbpasswd -a lisa
+smbpasswd -a peter
+testparm
+ls -la
+chmod 2770 private
+systemctl restart smb.service 
+ls -la
+chmod 2774 private
+systemctl restart smb.service 
+cd private/
+ls -la
+cd ..
+chmod 2775 private
+systemctl restart smb.service 
+vi /etc/samba/smb.conf
+cd
+history
 history | awk '$1 > 1000' | cut -c 8- > /root/lfs311_Nov/day3-hisotry.md
