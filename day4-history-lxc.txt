@@ -1,0 +1,92 @@
+yum install snapd
+ln -s /var/lib/snapd/snap /snap
+systemctl enable --now snapd.socket 
+systemctl statussnapd.socket 
+systemctl status snapd.socket 
+systemctl enable --now snapd.service
+systemctl status snapd.service 
+reboot
+snap install lxd
+lxc list
+lxd init
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host0/scan 
+echo "- - -" > /sys/class/scsi_host/host1/scan 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+lxd init
+lxc list
+lxc image list images:
+lxc image list images: | grep -i ubuntu
+lxc launch images:ff4597b73207 web1
+lxc list
+lxc delete web1
+lxc delete web1 -f
+lxc image list images: | grep -i ubuntu
+lxc launch images:dce09508a4457 web1
+lxc launch images:dce09508a445 web1
+lxc list
+lxc launch images:dce09508a445 web2
+lxc list
+lxc launch images:dce09508a445 web3
+lxc list
+lxc delete -f web3
+lxc list
+lxc stop web2
+lxc list
+lxc start web2
+lxc list
+lxc exec web1 bash
+lxc exec web2 bash
+lxc list
+lxc exec web1 bash
+lxc restart web1
+lxc exec web2 bash
+lxc exec web1 bash
+lxc list
+uptaime
+uptime
+cat /proc/meminfo 
+free -m
+lxc list
+lxc exec web1 bash
+lxc list
+ssh 10.37.205.226
+lxc exec web1 bash
+ssh 10.37.205.226
+lxc info web1
+lxc profile show default 
+clear
+lxc profile show default 
+lxc profile copy default custom
+lxc profile edit custom
+lxc profile show db
+lxc profile show 
+lxc profile show custom
+lxc list
+lxc config set web1 boot.autostart true
+lxc profile add web1 custom
+lxc list
+lxc profile show custom
+lxc stop web1
+lxc start web1
+lxc list
+ssh 10.37.205.100
+echo "test file centos7" > c7.txt
+lxc file push c7.txt web1/tmp/
+ssh 10.37.205.100
+lxc pull web1/tmp/web1.txt .
+lxc file pull web1/tmp/web1.txt .
+ls -la web1.txt 
+cat web1.txt
+lxc storage volume create default vol1 --type block
+lxc storage volume attach default vol1 web1 /dev/sdb
+lxc images list images: | grep ubuntu | grep -i virtual
+lxc image list images: | grep ubuntu | grep -i virtual
+lxc launch images:6c1e56cca804 web3
+git clone https://github.com/mariano-italiano/lfs311_Nov.git
+git config --global core.hookspath 'hooks' && git config --global credential.helper store && git config --global submodule.recurse true
+cd lfs311_Nov/
+vi day3-history.txt 
+history
+history | awk '$1 > 1002' | cut -c 8- > day4-history-lxc.txt 
